@@ -1,6 +1,6 @@
 # 🌤️ ESP8266 Weather Station
 
-A comprehensive IoT weather monitoring system built with ESP8266 NodeMCU, featuring multiple sensors for temperature, humidity, atmospheric pressure, and air quality monitoring with real-time web interface.
+Weather monitoring system built with ESP8266 NodeMCU, featuring multiple sensors for temperature, humidity, atmospheric pressure, and air quality monitoring with real-time web interface.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ESP8266-green.svg)
@@ -10,12 +10,10 @@ A comprehensive IoT weather monitoring system built with ESP8266 NodeMCU, featur
 
 - **Multi-sensor monitoring**: DHT11, BMP280, and MQ-135 sensors
 - **Dual temperature sensing**: Average calculation from DHT11 and BMP280 for accuracy
-- **Real-time web interface**: Access sensor data via web browser
-- **JSON API**: RESTful API for data integration
+- **Real-time JSON data**: Access sensor data via web browser
 - **Visual status indicators**: LED-based system health monitoring
 - **WiFi connectivity**: Static IP configuration with automatic reconnection
 - **Data validation**: Built-in sensor reading validation and error handling
-- **Modular design**: Clean, organized code structure for easy maintenance
 
 ## 🛠️ Hardware Components
 
@@ -104,11 +102,13 @@ The system uses two LEDs to indicate operational status:
 
 ### Configuration
 
-> [!WARNING] > **Arduino IDE File Structure Requirement**
+> [!WARNING] 
+> **Arduino IDE File Structure Requirement**
 >
 > All `.ino` and `.h` files must be placed inside a folder named `weather_station` for Arduino IDE to compile properly. The main file `weather_station.ino` must have the same name as the containing folder. Failure to follow this structure will result in compilation errors.
 
-> [!IMPORTANT] > **Configuration Setup**
+> [!IMPORTANT] 
+> **Configuration Setup**
 >
 > Before compiling, you must create your own `config.h` file from the example:
 >
@@ -193,20 +193,6 @@ GET /json?api_key=your_api_key
   },
   "timestamp": 1634567890
 }
-```
-
-## 📁 Project Structure
-
-```
-weather_station/
-├── weather_station.ino    # Main application file
-├── config.h              # Configuration settings
-├── sensor_manager.h/ino  # Sensor management
-├── web_server.h/ino      # Web server handling
-├── wifi_manager.h/ino    # WiFi connection management
-├── system_status.h/ino   # LED status management
-├── README.md             # This file
-└── LICENSE               # MIT License
 ```
 
 ## 🔧 Customization
