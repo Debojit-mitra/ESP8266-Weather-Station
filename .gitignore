@@ -1,0 +1,20 @@
+# Configuration with sensitive data
+config.h
+
+# Arduino IDE files
+*.ino.hex
+*.ino.elf
+*.ino.map
+*.ino.bin
+
+# VS Code settings (optional)
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
