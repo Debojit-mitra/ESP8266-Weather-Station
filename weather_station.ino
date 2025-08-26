@@ -4,12 +4,14 @@
 #include "config.h"
 #include "wifi_manager.h"
 #include "sensor_manager.h" 
+#include "weather_manager.h"
 #include "web_server.h"
 #include "system_status.h"
 
 // Global instances
 WiFiManager wifiManager;
 SensorManager sensorManager;
+WeatherManager weatherManager;
 WebServerManager webServer;
 
 void setup() {
@@ -22,8 +24,11 @@ void setup() {
   // Initialize sensors
   sensorManager.begin();
   
+  // Initialize weather manager
+  weatherManager.begin();
+  
   // Initialize web server
-  webServer.begin(&sensorManager);
+  webServer.begin(&sensorManager, &weatherManager);
   
   Serial.println("Weather Station initialized successfully!");
 }

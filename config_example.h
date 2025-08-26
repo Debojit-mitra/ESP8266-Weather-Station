@@ -21,6 +21,12 @@
 #define API_KEY "your_custom_api_key"
 #define WEB_SERVER_PORT 80
 
+// Weather API Configuration - Get your free API key from weatherapi.com
+#define WEATHER_API_KEY "your_weather_api_key_here"
+#define WEATHER_API_LOCATION "YourCity"  // Default location for weather data
+#define WEATHER_API_TIMEOUT 10000  // 10 seconds timeout
+#define WEATHER_API_INTERVAL 300  // 300 seconds (5 minutes) between API calls to prevent rate limit exhaustion
+
 // Sensor Configuration
 #define DHT_PIN D5
 #define DHT_TYPE DHT22
@@ -44,5 +50,14 @@
 #define TEMP_MAX 100.0
 #define PRESSURE_MIN 800.0
 #define PRESSURE_MAX 1200.0
+
+// MQ-135 Calibration Configuration
+// IMPORTANT: These values MUST be calibrated for your specific sensor!
+// See README.md for detailed calibration instructions
+#define MQ135_CLEAN_AIR_VALUE 200  // Your baseline reading in clean air (CUSTOMIZE THIS!)
+#define MQ135_RL_VALUE 1.0        // Load resistance (1kΩ in my case)
+#define MQ135_RO_CLEAN_AIR_FACTOR 3.6  // From datasheet for 100ppm CO2
+#define MQ135_CALIBRATION_SAMPLE_TIMES 50    // Number of samples for calibration
+#define MQ135_CALIBRATION_SAMPLE_INTERVAL 500 // Time between samples (ms)
 
 #endif

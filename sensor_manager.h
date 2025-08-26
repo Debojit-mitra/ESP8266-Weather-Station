@@ -16,7 +16,10 @@ struct SensorData {
   float temp_avg; // average of both temperature sensors
   float humidity; // dht22
   float pressure; // bmp280
-  int air_quality; // MQ-135
+  int air_quality_raw; // MQ-135 raw analog value
+  float air_quality_ppm; // MQ-135 calculated ppm
+  int air_quality_aqi; // Estimated AQI
+  String air_quality_status; // Quality description (Good, Moderate, etc.)
   unsigned long last_update;
   bool is_valid;
   bool dht_working;
@@ -50,6 +53,13 @@ private:
   bool validatePressure(float pressure);
   float roundToDecimal(float value, int decimals = 1);
   SensorHealth getSensorHealth();
+  
+  // MQ-135 specific functions
+  float getMQ135Resistance(int analogValue);
+  float getMQ135PPM(float resistance);
+  int calculateAQI(float ppm);
+  String getAirQualityStatus(int aqi);
+  float mq135_ro; // Sensor resistance in clean air
 };
 
 #endif
